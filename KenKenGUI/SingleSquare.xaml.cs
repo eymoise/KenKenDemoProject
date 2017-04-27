@@ -26,10 +26,15 @@ namespace KenKenGUI
 
         public int Target { get; private set; }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnOK_Click(object sender, RoutedEventArgs e)
         {
             Target = int.Parse(cbTarget.Text);
             this.DialogResult = true;
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
         }
     }
 }

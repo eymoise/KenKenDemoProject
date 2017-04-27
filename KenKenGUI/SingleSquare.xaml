@@ -5,17 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KenKenGUI"
         mc:Ignorable="d"
-        Title="New Region" Height="180" Width="138.095" ResizeMode="NoResize">
-    <Canvas>
-        <ComboBox x:Name="cbTarget" Height="53" Width="65" Canvas.Left="35" Canvas.Top="43" RenderTransformOrigin="1.025,0.589" FontSize="16" FontWeight="Bold" SelectedIndex="0">
-            <ComboBoxItem Content="1"/>
-            <ComboBoxItem Content="2"/>
-            <ComboBoxItem Content="3"/>
-            <ComboBoxItem Content="4"/>
-            <ComboBoxItem Content="5"/>
-            <ComboBoxItem Content="6"/>
+        Title="New Region" Height="160" Width="400" ResizeMode="NoResize" Background="Black" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ComboBox x:Name="cbTarget" Grid.Row="0" FontSize="16" FontWeight="Bold" SelectedIndex="0" Width="100" Margin="5" HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+            <ComboBoxItem Content="1" HorizontalAlignment="Center"/>
+            <ComboBoxItem Content="2" HorizontalAlignment="Center"/>
+            <ComboBoxItem Content="3" HorizontalAlignment="Center"/>
+            <ComboBoxItem Content="4" HorizontalAlignment="Center"/>
+            <ComboBoxItem Content="5" HorizontalAlignment="Center"/>
+            <ComboBoxItem Content="6" HorizontalAlignment="Center"/>
         </ComboBox>
-        <Button Content="OK" RenderTransformOrigin="5.326,8.414" Canvas.Left="10" Canvas.Top="118" Width="52" Click="Button_Click"/>
-        <Button Content="Cancel" RenderTransformOrigin="5.326,8.414" Canvas.Left="70" Canvas.Top="118" Width="52"/>
-    </Canvas>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft" Height="50">
+            <Button x:Name="btnCancel" Content="Cancel" Margin="5" Width="70" Click="btnCancel_Click" Style="{StaticResource Simple_Button}"/>
+            <Button x:Name="btnOK" Content="OK" Margin="5" Width="70" Click="btnOK_Click" Style="{StaticResource Simple_Button}"/>
+        </StackPanel>
+    </Grid>
 </Window>

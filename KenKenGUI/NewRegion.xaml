@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KenKenGUI"
         x:Class="KenKenGUI.NewRegion"
         mc:Ignorable="d"
-        Title="New Region" Height="161.143" Width="325" Background="Black" Foreground="White" WindowStartupLocation="CenterScreen">
+        Title="New Region" Height="160" Width="400" Background="Black" Foreground="White" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <local:OperationConverter x:Key="OperationConverter"/>
     </Window.Resources>
@@ -23,12 +23,6 @@
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Operation:" Margin="5" Foreground="White"/>
             <ComboBox x:Name="operationChoice" Grid.Row="0" Grid.Column="1" Margin="5">
-                <ComboBox.ItemContainerStyle>
-                    <Style TargetType="ComboBoxItem">
-                        <Setter Property="Background" Value="Orange"/>
-                        <Setter Property="BorderBrush" Value="Orange"/>
-                    </Style>
-                </ComboBox.ItemContainerStyle>
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Converter={StaticResource OperationConverter}}"/>
@@ -40,7 +34,7 @@
         </Grid>
         <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Height="50">
             <Button x:Name="btnCancel" Content="Cancel" Margin="5" Width="70" Click="btnCancel_Click" Style="{StaticResource Simple_Button}"/>
-            <Button x:Name="btnOK" Content="OK" Margin="5" Width="70" Click="btnOK_Click" Style="{DynamicResource Simple_Button}" IsEnabled="False"/>
+            <Button x:Name="btnOK" Content="OK" Margin="5" Width="70" Click="btnOK_Click" Style="{StaticResource Simple_Button}" IsEnabled="False"/>
         </StackPanel>
     </StackPanel>
 </Window>

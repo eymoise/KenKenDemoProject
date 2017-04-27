@@ -115,7 +115,7 @@ namespace KenKenGUI
             foreach (KenKenSquare square in surroundingSquares.Except(DefinedKKSquares()))
             {
                 square.IsEnabled = true;
-                //square.ColorIn = square.ColorOut = Brushes.Yellow.Color;
+                square.ColorIn = Brushes.Yellow.Color;
             }
             var notInPlay = KKSquares().Except(surroundingSquares).Except(EvolvingKKShape).Except(DefinedKKSquares());
             foreach (KenKenSquare square in notInPlay)
@@ -238,6 +238,7 @@ namespace KenKenGUI
             if (!square.IsDefined)
             {
                 square.IsDefined = true;
+                square.ColorIn = Brushes.Orange.Color;
                 EvolvingKKShape.Add(square);
                 UpdateEvolvingKKShape();
             }
