@@ -1,0 +1,147 @@
+﻿<Window x:Class="KenKenGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KenKenGUI"
+        mc:Ignorable="d"
+        Title="Ken-Ken!" Height="1000" Width="1500" Background="Black">
+    <Window.Resources>
+        <local:SizeConverter x:Key="SizeConverter"/>
+    </Window.Resources>
+    <Grid x:Name="grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="0">
+            <Button x:Name="btnDefineRegion" Style="{StaticResource cutomPathButton}" Click="btnDefineRegion_Click"
+                    Height="{Binding ActualWidth, ConverterParameter=0.5, Converter={StaticResource SizeConverter}, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}}"
+                    Margin="10"
+                    Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" ToolTip="Define Region">
+                <Path Fill="Blue" DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}}">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform 
+                                            ScaleX="{Binding ActualWidth, ConverterParameter=0.004, Converter={StaticResource SizeConverter}}"
+                                            ScaleY="{Binding ActualHeight, ConverterParameter=0.004, Converter={StaticResource SizeConverter}}"
+                                            CenterX="{Binding ActualWidth, ConverterParameter=0.004, Converter={StaticResource SizeConverter}}"
+                                            CenterY="{Binding ActualHeight, ConverterParameter=0.004, Converter={StaticResource SizeConverter}}"/>
+                            <TranslateTransform 
+                                            X="{Binding ActualWidth, ConverterParameter=0.13, Converter={StaticResource SizeConverter}}"
+                                            Y="{Binding ActualHeight, ConverterParameter=0.065, Converter={StaticResource SizeConverter}}"/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                    <Path.Data>
+                        m 45,10 h 10 v 40 h 40 v 10 h -40 v 40 h -10 v -40 h -40 v -10 h 40 v -40
+                        m 65 40 h 80 v 10 h -80 v -10
+                        m 35,60 a 7,7 0 0 1 7,14 a 7,7 0 0 1 -7,-14 m -35,30 h 80 v 10 h -80 v -10 m 35,25 a 7,7 0 0 1 7,14 a 7,7 0 0 1 -7,-14
+                        m -63,10 l -7,7 l -25,-25 l -25,25 l -7,-7 l 25,-25 l -25,-25 l 7,-7 l 25,25 l 25,-25 l 7,7 l -25,25 l 25,25
+                    </Path.Data>
+                </Path>
+            </Button>
+            <Button x:Name="btnSolve" Style="{StaticResource cutomPathButton}" IsEnabled="False" Click="btnSolve_Click"
+                    Height="{Binding ActualWidth, ConverterParameter=0.5, Converter={StaticResource SizeConverter}, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}}"
+                    Margin="10"
+                    Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" ToolTip="Solve">
+                <Path Fill="Blue"
+                                  DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}}">
+                    <Path.RenderTransform>
+                        <ScaleTransform 
+                                            ScaleX="{Binding ActualWidth, ConverterParameter=0.01, Converter={StaticResource SizeConverter}}"
+                                            ScaleY="{Binding ActualHeight, ConverterParameter=0.01, Converter={StaticResource SizeConverter}}"
+                                            CenterX="{Binding ActualWidth, ConverterParameter=0.01, Converter={StaticResource SizeConverter}}"
+                                            CenterY="{Binding ActualHeight, ConverterParameter=0.01, Converter={StaticResource SizeConverter}}"/>
+                    </Path.RenderTransform>
+                    <Path.Data>
+                        <GeometryGroup FillRule="Nonzero">
+                            <RectangleGeometry Rect="12,37 80,10"/>
+                            <RectangleGeometry Rect="12,60 80,10"/>
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </Button>
+            <Button x:Name="btnReset" Style="{StaticResource cutomPathButton}" Click="btnReset_Click" 
+                    Height="{Binding ActualWidth, ConverterParameter=0.5, Converter={StaticResource SizeConverter}, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}}"
+                    Margin="10"
+                    Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}" ToolTip="Reset">
+                <!--<Button.RenderTransform>
+                    <RotateTransform 
+                        CenterX="{Binding ActualWidth, ConverterParameter=0.5, Converter={StaticResource SizeConverter}, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" 
+                        CenterY="{Binding ActualHeight, ConverterParameter=0.5, Converter={StaticResource SizeConverter}, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                </Button.RenderTransform>-->
+                <Path Fill="Blue" Stretch="None"
+                                  DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}}}">
+                    <Path.Data>
+                        m 45,0 a 75,75 0 1 1 0,150 a 35,35 0 1 1 0,-85 v -15 l 25,25 l -25,25 v -15 a 16,16 0 1 0 0,45 a 50,50 0 1 0 0,-110 z
+                    </Path.Data>
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform  
+                                            ScaleX="{Binding ActualWidth, ConverterParameter=0.006, Converter={StaticResource SizeConverter}}"
+                                            ScaleY="{Binding ScaleX, RelativeSource={RelativeSource Self}}"/>
+                            <TranslateTransform 
+                                            X="{Binding ActualWidth, ConverterParameter=0.19, Converter={StaticResource SizeConverter}}"
+                                            Y="{Binding ActualHeight, ConverterParameter=0.055, Converter={StaticResource SizeConverter}}"/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Button>
+        </StackPanel>
+        <Grid x:Name="kenKenGrid" Grid.Column="1" Margin="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!-- Six columns-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <local:KenKenSquare Grid.Row="0" Grid.Column="0" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="0" Grid.Column="1" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="0" Grid.Column="2" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="0" Grid.Column="3" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="0" Grid.Column="4" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="0" Grid.Column="5" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="1" Grid.Column="0" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="1" Grid.Column="1" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="1" Grid.Column="2" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="1" Grid.Column="3" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="1" Grid.Column="4" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="1" Grid.Column="5" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="2" Grid.Column="0" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="2" Grid.Column="1" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="2" Grid.Column="2" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="2" Grid.Column="3" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="2" Grid.Column="4" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="2" Grid.Column="5" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="3" Grid.Column="0" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="3" Grid.Column="1" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="3" Grid.Column="2" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="3" Grid.Column="3" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="3" Grid.Column="4" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="3" Grid.Column="5" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="4" Grid.Column="0" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="4" Grid.Column="1" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="4" Grid.Column="2" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="4" Grid.Column="3" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="4" Grid.Column="4" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="4" Grid.Column="5" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="5" Grid.Column="0" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="5" Grid.Column="1" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="5" Grid.Column="2" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="5" Grid.Column="3" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="5" Grid.Column="4" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+            <local:KenKenSquare Grid.Row="5" Grid.Column="5" Click="KenKenSquare_Click" MouseEnter="KenKenSquare_MouseEnter" MouseLeave="KenKenSquare_MouseLeave"/>
+        </Grid>
+    </Grid>
+</Window>

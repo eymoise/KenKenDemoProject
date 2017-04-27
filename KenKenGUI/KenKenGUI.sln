@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KenKenGUI", "KenKenGUI.csproj", "{16FA7231-8437-49D7-BEA5-4B6C3EEB04A2}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "KenKenLogic", "..\KenKenLogic\KenKenLogic.fsproj", "{12FE8C65-199F-4E9B-A859-4F39BD408D30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KenKenModel", "..\KenKenModel\KenKenModel.csproj", "{EAE1096C-E3C3-4B25-86B9-64C9B12680F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16FA7231-8437-49D7-BEA5-4B6C3EEB04A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16FA7231-8437-49D7-BEA5-4B6C3EEB04A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16FA7231-8437-49D7-BEA5-4B6C3EEB04A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16FA7231-8437-49D7-BEA5-4B6C3EEB04A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12FE8C65-199F-4E9B-A859-4F39BD408D30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12FE8C65-199F-4E9B-A859-4F39BD408D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12FE8C65-199F-4E9B-A859-4F39BD408D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12FE8C65-199F-4E9B-A859-4F39BD408D30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAE1096C-E3C3-4B25-86B9-64C9B12680F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAE1096C-E3C3-4B25-86B9-64C9B12680F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAE1096C-E3C3-4B25-86B9-64C9B12680F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAE1096C-E3C3-4B25-86B9-64C9B12680F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
